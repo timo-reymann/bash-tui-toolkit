@@ -1,0 +1,32 @@
+fail_fast: true
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: detect-private-key
+      - id: check-symlinks
+      - id: check-vcs-permalinks
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+        args:
+          - --fix=lf
+      - id: check-case-conflict
+      - id: check-toml
+      - id: check-xml
+      - id: fix-byte-order-marker
+      - id: destroyed-symlinks
+
+  - repo: https://github.com/syntaqx/git-hooks
+    rev: v0.0.17
+    hooks:
+      - id: shellcheck
+        additional_dependencies: []
+
+  - repo: https://github.com/matthorgan/pre-commit-conventional-commits
+    rev: 20fb9631be1385998138432592d0b6d4dfa38fc9
+    hooks:
+      - id: conventional-commit-check
+        stages: [commit-msg]
