@@ -119,6 +119,7 @@ confirm() {
 #   echo "Your choice: ${options[$option]}"
 list() {
     _prompt_text "$1 "
+    echo "" >&2
 
     local opts=("${@:2}")
     local opts_count=$(($# -1))
@@ -176,6 +177,8 @@ list() {
 #   echo "Your choices: ${checked}"
 checkbox() {
     _prompt_text "$1"
+    echo "" >&2
+    
     local opts; opts=("${@:2}")
     local opts_count; opts_count=$(($# -1))
     _new_line_foreach_item "${opts[@]}"
