@@ -39,7 +39,7 @@ _decrement_selected() {
     if [ "${selected}" -lt 0 ]; then
         selected=$(($2 - 1));
     fi
-    echo $selected
+    echo -n $selected
 }
 
 # increment counter $1, considering out of range for $2
@@ -49,7 +49,7 @@ _increment_selected() {
     if [ "${selected}" -ge "${opts_count}" ]; then
         selected=0;
     fi
-    echo $selected
+    echo -n $selected
 }
 
 # checks if $1 contains element $2
@@ -75,7 +75,7 @@ _contains() {
 input() {
     _prompt_text "$1"; echo -en "\e[36m\c" >&2
     read -r text
-    echo "${text}"
+    echo -n "${text}"
 }
 
 # @description Show confirm dialog for yes/no
@@ -99,8 +99,8 @@ confirm() {
     echo -en "\e[0m" >&2
 
     case $result in
-        y) echo 1; ;;
-        N) echo 0 ;;
+        y) echo -n 1; ;;
+        N) echo -n 0 ;;
     esac
 
     echo "" >&2
@@ -154,13 +154,13 @@ list() {
         esac
     done
 
-    echo -en "\n"
+    echo -en "\n" >&2
 
     # cursor position back to normal
     _cursor_to "${lastrow}"
     _cursor_blink_on
 
-   echo "${selected}"
+   echo -n "${selected}"
 }
 
 # @description Render a text based list of options, where multiple can be selected by the
@@ -228,7 +228,7 @@ checkbox() {
     _cursor_to "${lastrow}"
     _cursor_blink_on
 
-    IFS=" " echo "${checked[@]}"
+    IFS=" " echo -n "${checked[@]}"
 }
 
 # @description Show password prompt displaying stars for each password character letter typed
@@ -263,7 +263,7 @@ password() {
         fi
     done
     echo -en "\e[0m" >&2
-    echo "${password}"
+    echo -n "${password}"
 }
 
 # @description Open default editor ($EDITOR) if none is set falls back to vi
