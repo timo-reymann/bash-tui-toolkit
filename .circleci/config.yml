@@ -3,10 +3,26 @@ version: "2.1"
 orbs:
   shellcheck: circleci/shellcheck@3.1.2
 
+jobs:
+  build:
+    docker:
+      - image: cimg/base:2023.02
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build script
+          command: make build
+      - store_artifacts:
+          path: dist/
+
 workflows:
   main:
     jobs:
       - shellcheck/check:
           name: shellcheck
           dir: src
+      - build:
+          requires:
+            - shellcheck
 
