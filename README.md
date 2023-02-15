@@ -6,8 +6,6 @@ bash-tui-toolkit
 
 Toolkit to create simple Terminal UIs using plain bash builtins
 
-> :warning: Currently, WIP and not in a stable state for usage
-
 ## Goals
 - provide a simple and clear default set of elements to use creating an interactive terminal UI
 - be clean and minimalistic
