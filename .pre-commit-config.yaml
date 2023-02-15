@@ -25,6 +25,11 @@ repos:
       - id: shellcheck
         additional_dependencies: []
 
+  - repo: https://github.com/zahorniak/pre-commit-circleci.git
+    rev: v0.6
+    hooks:
+      - id: circleci_validate
+
   - repo: https://github.com/matthorgan/pre-commit-conventional-commits
     rev: 20fb9631be1385998138432592d0b6d4dfa38fc9
     hooks:

@@ -24,6 +24,7 @@ _key_input() {
 }
 
 # print new line for empty element in array
+# shellcheck disable=SC2231
 _new_line_foreach_item() { for _ in $1[@]; do echo -en "\n" >&2; done }
 
 # display prompt text without linebreak
