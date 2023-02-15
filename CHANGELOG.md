@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.0.1...1.0.2) (2023-02-15)
+
+
+### Bug Fixes
+
+* Fix line break in list result ([391c0e2](https://github.com/timo-reymann/bash-tui-toolkit/commit/391c0e2a9672e1eefba9883b307bd6d87dacddf5))
+
 ## [1.0.1](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.0.0...1.0.1) (2023-02-15)
 
 
