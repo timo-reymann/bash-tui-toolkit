@@ -9,21 +9,44 @@ Toolkit to create simple Terminal UIs using plain bash builtins
 > :warning: Currently, WIP and not in a stable state for usage
 
 ## Goals
-
 - provide a simple and clear default set of elements to use creating an interactive terminal UI
 - be clean and minimalistic
 - zero dependencies to be installed
 - parts can be used separately
 
 ## Install
-
 > tbd
 
 ## Documentation
-
 For a list of available modules and their documentation please check the [docs/modules](./docs/modules) folder
 
-## Alternatives
+## Development
 
+### Requirements
+- bash 4+
+- docker 19+
+- GNU make
+
+## Generate documentation
+To update the module documentation you just need to run
+
+```sh
+make generate-docs
+```
+
+This builds the documentation inside a docker container and updates the
+repo locally. Afterwards just commit the docs with your code changes
+
+## Build
+To combine the script(s) you just need to run
+
+```sh
+make build
+```
+
+The combined artifacts can be found in `dist/`
+
+## Alternatives
 - [kahkhang/Inquirer.sh](https://github.com/kahkhang/Inquirer.sh) - List, Checkbox and Text Input with more advanced
   validation
+
