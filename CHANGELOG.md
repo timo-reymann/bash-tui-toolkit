@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.0.0...1.0.1) (2023-02-15)
+
+
+### Bug Fixes
+
+* Fix empty lines for switch and checkbox ([dd3f163](https://github.com/timo-reymann/bash-tui-toolkit/commit/dd3f163e276f7fb94492ffe2afc3dda43aa7b192))
+
 ## 1.0.0 (2023-02-15)
 
 
