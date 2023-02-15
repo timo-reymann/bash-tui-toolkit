@@ -24,7 +24,7 @@ _key_input() {
 }
 
 # print new line for empty element in array
-_new_line_foreach_item() { for _ in "${1[@]}"; do echo -en "\n" >&2; done }
+_new_line_foreach_item() { for _ in $1[@]; do echo -en "\n" >&2; done }
 
 # display prompt text without linebreak
 _prompt_text() {
@@ -108,7 +108,7 @@ list() {
 
     local opts=("${@:2}")
     local opts_count=$(($# -1))
-    _new_line_foreach_item "${opts[@]}"
+    _new_line_foreach_item "${opts[*]}"
 
     # determine current screen position for overwriting the options
     local lastrow; lastrow=$(_get_cursor_row)
@@ -158,7 +158,7 @@ checkbox() {
     _prompt_text "$1"
     local opts; opts=("${@:2}")
     local opts_count; opts_count=$(($# -1))
-    _new_line_foreach_item "${opts[@]}"
+    _new_line_foreach_item "${opts[*]}"
 
     # determine current screen position for overwriting the options
     local lastrow; lastrow=$(_get_cursor_row)

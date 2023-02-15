@@ -2,7 +2,9 @@
 #
 # Basic demo of features
 #
-source src/main.sh
+cd src
+source main.sh
+cd -
 
 #
 # UTILS
