@@ -1,6 +1,7 @@
 bash-tui-toolkit
 ===
 [![pre-commit](https://img.shields.io/badge/%E2%9A%93%20%20pre--commit-enabled-success)](https://pre-commit.com/)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/timo-reymann/bash-tui-toolkit/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/timo-reymann/bash-tui-toolkit/tree/main)
 
 Toolkit to create simple Terminal UIs using plain bash builtins
 
