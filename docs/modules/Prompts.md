@@ -21,9 +21,18 @@ Prompt for text
 
 Prompt for text
 
+#### Example
+
+```bash
+# Raw input without validation
+text=$(input "Please enter something and confirm with enter")
+# Input with validation
+text=$(with_validate 'input "Please enter at least one character and confirm with enter"' validate_present)
+```
+
 #### Arguments
 
-* **$1** (string): Phrase for promptint to text
+* **$1** (string): Phrase for prompting to text
 
 #### Output on stdout
 
@@ -32,6 +41,13 @@ Prompt for text
 ### confirm
 
 Show confirm dialog for yes/no
+
+#### Example
+
+```bash
+confirmed=$(confirm "Should it be?")
+if [ "$confirmed" = "0" ]; then echo "No?"; else echo "Yes!"; fi
+```
 
 #### Arguments
 
@@ -46,6 +62,14 @@ Show confirm dialog for yes/no
 Renders a text based list of options that can be selected by the
 user using up, down and enter keys and returns the chosen option.
 Inspired by https://unix.stackexchange.com/questions/146570/arrow-key-enter-menu/415155#415155
+
+#### Example
+
+```bash
+options=("one" "two" "three" "four")
+option=$(list "Select one item" "${options[@]}")
+echo "Your choice: ${options[$option]}"
+```
 
 #### Arguments
 
@@ -62,6 +86,14 @@ Render a text based list of options, where multiple can be selected by the
 user using up, down and enter keys and returns the chosen option.
 Inspired by https://unix.stackexchange.com/questions/146570/arrow-key-enter-menu/415155#415155
 
+#### Example
+
+```bash
+options=("one" "two" "three" "four")
+checked=$(checkbox "Select one or more items" "${options[@]}")
+echo "Your choices: ${checked}"
+```
+
 #### Arguments
 
 * **$1** (string): Phrase for promptint to text
@@ -76,6 +108,16 @@ Inspired by https://unix.stackexchange.com/questions/146570/arrow-key-enter-menu
 Show password prompt displaying stars for each password character letter typed
 it also allows deleting input
 
+#### Example
+
+```bash
+# Password prompt with custom validation
+validate_password() { if [ ${#1} -lt 10 ];then echo "Password needs to be at least 10 characters"; exit 1; fi }
+pass=$(with_validate 'password "Enter random password"' validate_password)
+# Password ith no validation
+pass=$(password "Enter password to use")
+```
+
 #### Arguments
 
 * **$1** (string): Phrase for promptint to text
@@ -86,7 +128,15 @@ it also allows deleting input
 
 ### editor
 
-Open default editor
+Open default editor ($EDITOR) if none is set falls back to vi
+
+#### Example
+
+```bash
+# Open default editor
+text=$(editor "Please enter something in the editor")
+echo -e "You wrote:\n${text}"
+```
 
 #### Arguments
 
@@ -101,6 +151,16 @@ Open default editor
 Evaluate prompt command with validation, this prompts the user for input till the validation function
 returns with 0
 
+#### Example
+
+```bash
+# Using builtin is present validator
+text=$(with_validate 'input "Please enter something and confirm with enter"' validate_present)
+# Using custom validator e.g. for password
+validate_password() { if [ ${#1} -lt 10 ];then echo "Password needs to be at least 10 characters"; exit 1; fi }
+pass=$(with_validate 'password "Enter random password"' validate_password)
+```
+
 #### Arguments
 
 * **$1** (string): Prompt command to evaluate until validation is successful
@@ -114,9 +174,21 @@ returns with 0
 
 Validate a prompt returned any value
 
+#### Example
+
+```bash
+# text input with validation
+text=$(with_validate 'input "Please enter something and confirm with enter"' validate_present)
+```
+
 #### Arguments
 
 * **$1** (value): to validate
+
+#### Exit codes
+
+* **0**: String is at least 1 character long
+* **1**: There was no input given
 
 #### Output on stdout
 

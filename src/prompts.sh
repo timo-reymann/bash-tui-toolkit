@@ -63,9 +63,15 @@ _contains() {
 }
 
 # @description Prompt for text
-# @arg $1 string Phrase for promptint to text
-# @stdout Text as provided by user
+# @arg $1 string Phrase for prompting to text
 # @stderr Instructions for user
+# @stdout Text as provided by user
+# @example
+#   # Raw input without validation
+#   text=$(input "Please enter something and confirm with enter")
+# @example
+#   # Input with validation
+#   text=$(with_validate 'input "Please enter at least one character and confirm with enter"' validate_present)
 input() {
     _prompt_text "$1"; echo -en "\e[36m\c" >&2
     read -r text
@@ -76,6 +82,9 @@ input() {
 # @arg $1 string Phrase for promptint to text
 # @stdout 0 for no, 1 for yes
 # @stderr Instructions for user
+# @example
+#   confirmed=$(confirm "Should it be?")
+#   if [ "$confirmed" = "0" ]; then echo "No?"; else echo "Yes!"; fi
 confirm() {
     _prompt_text "$1 (y/N)"
     echo -en "\e[36m\c " >&2
@@ -104,6 +113,10 @@ confirm() {
 # @arg $2 array List of options (max 256)
 # @stdout selected index (0 for opt1, 1 for opt2 ...)
 # @stderr Instructions for user
+# @example
+#   options=("one" "two" "three" "four")
+#   option=$(list "Select one item" "${options[@]}")
+#   echo "Your choice: ${options[$option]}"
 list() {
     _prompt_text "$1 "
 
@@ -141,11 +154,13 @@ list() {
         esac
     done
 
+    echo -en "\n"
+
     # cursor position back to normal
     _cursor_to "${lastrow}"
     _cursor_blink_on
 
-    echo "${selected}"
+   echo "${selected}"
 }
 
 # @description Render a text based list of options, where multiple can be selected by the
@@ -155,6 +170,10 @@ list() {
 # @arg $2 array List of options (max 256)
 # @stdout selected index (0 for opt1, 1 for opt2 ...)
 # @stderr Instructions for user
+# @example
+#   options=("one" "two" "three" "four")
+#   checked=$(checkbox "Select one or more items" "${options[@]}")
+#   echo "Your choices: ${checked}"
 checkbox() {
     _prompt_text "$1"
     local opts; opts=("${@:2}")
@@ -217,6 +236,13 @@ checkbox() {
 # @arg $1 string Phrase for promptint to text
 # @stdout password as written by user
 # @stderr Instructions for user
+# @example
+#   # Password prompt with custom validation
+#   validate_password() { if [ ${#1} -lt 10 ];then echo "Password needs to be at least 10 characters"; exit 1; fi }
+#   pass=$(with_validate 'password "Enter random password"' validate_password)
+# @example
+#   # Password ith no validation
+#   pass=$(password "Enter password to use")
 password() {
     _prompt_text "$1"
     echo -en "\e[36m" >&2
@@ -240,10 +266,14 @@ password() {
     echo "${password}"
 }
 
-# @description Open default editor
+# @description Open default editor ($EDITOR) if none is set falls back to vi
 # @arg $1 string Phrase for promptint to text
 # @stdout Text as input by user in input
 # @stderr Instructions for user
+# @example
+#   # Open default editor
+#   text=$(editor "Please enter something in the editor")
+#   echo -e "You wrote:\n${text}"
 editor() {
     tmpfile=$(mktemp)
     _prompt_text "$1"
@@ -264,6 +294,13 @@ editor() {
 # @arg #2 function validation callback (this is called once for exit code and once for status code)
 # @stdout Value collected by evaluating prompt
 # @stderr Instructions for user
+# @example
+#   # Using builtin is present validator
+#   text=$(with_validate 'input "Please enter something and confirm with enter"' validate_present)
+# @example
+#   # Using custom validator e.g. for password
+#   validate_password() { if [ ${#1} -lt 10 ];then echo "Password needs to be at least 10 characters"; exit 1; fi }
+#   pass=$(with_validate 'password "Enter random password"' validate_password)
 with_validate() {
     while true; do
         local val; val="$(eval "$1")"
@@ -279,6 +316,11 @@ with_validate() {
 # @description Validate a prompt returned any value
 # @arg $1 value to validate
 # @stdout error message for user
+# @exitcode 0 String is at least 1 character long
+# @exitcode 1 There was no input given
+# @example
+#   # text input with validation
+#   text=$(with_validate 'input "Please enter something and confirm with enter"' validate_present)
 validate_present() {
     if [ "$1" != "" ]; then return 0; else echo "Please specify the value"; return 1; fi
 }

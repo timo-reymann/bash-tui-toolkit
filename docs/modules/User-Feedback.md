@@ -15,6 +15,12 @@ Display error message in stderr, prefixed by check emoji
 
 Display error message in stderr, prefixed by check emoji
 
+#### Example
+
+```bash
+show_error "Oh snap, that went horribly wrong"
+```
+
 #### Arguments
 
 * **$1** (string): Error message to display
@@ -22,6 +28,12 @@ Display error message in stderr, prefixed by check emoji
 ### show_success
 
 Display success message in stderr, prefixed by cross emoji
+
+#### Example
+
+```bash
+show_success "There it is! World peace."
+```
 
 #### Arguments
 
