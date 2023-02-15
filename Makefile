@@ -13,11 +13,23 @@ generate-docs: ## Build documentation using docker container
 	@docker run --rm  bash-tui-toolkit/shdoc 'shdoc < prompts.sh ' 2>&1 > docs/modules/Prompts.md
 	@docker run --rm  bash-tui-toolkit/shdoc 'shdoc < user_feedback.sh ' 2>&1 > docs/modules/User-Feedback.md
 
-build: ## Bundle script to dist folder and remove all comments
+_remove_comments_from_file:
+	@cat $(file) | sed '/^$$/d' | sed '/^#/d' | sed '/^\s*#/d' | tee $(file) > /dev/null
+
+_push_module:
+	echo "=> Push module $(module)"
+	cp src/$(module).sh dist/$(module).sh
+	@$(MAKE) _remove_comments_from_file file=dist/$(module).sh
+
+build: ## Bundle script to dist folder and remove all top level comments
+	@echo "=> Create dist folder"
 	@rm -rf dist || true
 	@mkdir dist/
+	@echo "=> Create builder image"
 	@docker build . -t bash-tui-toolkit/builder -f .development/build/Dockerfile
-	@docker run --rm bash-tui-toolkit/builder 'bash_bundler bundle --entry src/main.sh --output /dev/stderr' 2> dist/bundle.sh
-	@sed -i '/^$$/d' dist/bundle.sh
-	@sed -i '/^#/d' dist/bundle.sh
-
+	@echo "=> Bundle and remove comments from target files"
+	@docker run --rm bash-tui-toolkit/builder 'bash_bundler bundle --entry src/main.sh --output /dev/stderr' 2>dist/bundle.sh
+	@$(MAKE) _remove_comments_from_file file=dist/bundle.sh
+	@$(MAKE) _push_module module=logging
+	@$(MAKE) _push_module module=prompts
+	@$(MAKE) _push_module module=user_feedback

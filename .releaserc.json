@@ -36,7 +36,23 @@
           "assets": [
             {
                 "path": "dist/bundle.sh",
-                "label": "Full Library"
+                "name": "bundle.bash",
+                "label": "Bundle > Full Library - containing all files"
+            },
+            {
+              "path": "dist/logging.sh",
+              "name": "logging.bash",
+              "label": "Component > Logging - Provide logging helpers for structured logging"
+            },
+            {
+              "path": "dist/prompts.sh",
+              "name": "prompts.bash",
+              "label": "Component > Logging - Inquirer.js inspired prompts"
+            },
+            {
+              "path": "dist/user_feedback.sh",
+              "name": "user-feedback.bash",
+              "label": "Component > User-Feedback - Provides useful colored outputs for user feedback on actions"
             }
           ]
         }
