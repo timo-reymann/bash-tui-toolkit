@@ -1,0 +1,46 @@
+{
+    "branches": [
+      "master",
+      "main"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": "CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "path": "semantic-release",
+          "name": "timo-reymann/bash-tui-toolkit",
+          "assets": [
+            {
+                "path": "dist/bundle.sh",
+                "label": "Full Library"
+            }
+          ]
+        }
+      ]
+    ],
+    "tagFormat": "${version}"
+}

@@ -2,6 +2,7 @@ version: "2.1"
 
 orbs:
   shellcheck: circleci/shellcheck@3.1.2
+  semantic-release: trustedshops-public/semantic-release@3.1.5
 
 jobs:
   build:
@@ -15,6 +16,18 @@ jobs:
           command: make build
       - store_artifacts:
           path: dist/
+      - persist_to_workspace:
+          paths:
+            . dist/
+          root: .
+  semantic-release:
+    executor: semantic-release/default
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - semantic-release/install
+      - semantic-release/execute
 
 workflows:
   main:
@@ -25,4 +38,7 @@ workflows:
       - build:
           requires:
             - shellcheck
+      - semantic-release:
+          requires:
+            - build
 
