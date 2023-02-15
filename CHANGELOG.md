@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.0.2...1.0.3) (2023-02-15)
+
+
+### Bug Fixes
+
+* Add missing new line for select ([717bb54](https://github.com/timo-reymann/bash-tui-toolkit/commit/717bb546a0759174d115f0f7abd9f88dda06294c))
+
 ## [1.0.2](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.0.1...1.0.2) (2023-02-15)
 
 
