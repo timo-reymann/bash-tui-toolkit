@@ -25,7 +25,7 @@ log "$LOG_ERROR" "Error message"
 # PROMPTS
 #
 
-options=("one" "two" "three" "four")
+options=("one" "two" "three" "four" "a" "b" "c" "d" "e")
 
 validate_password() {
     if [ ${#1} -lt 10 ];then
