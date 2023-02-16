@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.0.3...1.0.4) (2023-02-16)
+
+
+### Bug Fixes
+
+* Fix empty line for checkbox and list prompt ([042f01b](https://github.com/timo-reymann/bash-tui-toolkit/commit/042f01bd0b25db94ed4c83b64a91439e295e4445))
+
 ## [1.0.3](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.0.2...1.0.3) (2023-02-15)
 
 
