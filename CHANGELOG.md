@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.0.4...1.1.0) (2023-02-16)
+
+
+### Features
+
+* Improve performance for empty line print for larger lists ([3b02fbb](https://github.com/timo-reymann/bash-tui-toolkit/commit/3b02fbb91164b807ac84ed6e956cdcad4c8d3c08))
+
 ## [1.0.4](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.0.3...1.0.4) (2023-02-16)
 
 
