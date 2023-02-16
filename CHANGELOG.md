@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.1.0...1.1.1) (2023-02-16)
+
+
+### Bug Fixes
+
+* Fix color formatting for success and error messages ([6d8aad0](https://github.com/timo-reymann/bash-tui-toolkit/commit/6d8aad022e329a0942e43e386cb34f2d458f4ac2))
+
 ## [1.1.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.0.4...1.1.0) (2023-02-16)
 
 
