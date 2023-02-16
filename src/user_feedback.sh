@@ -7,7 +7,7 @@
 # @example
 #   show_error "Oh snap, that went horribly wrong"
 show_error() {
-    echo -e "\e[91;1m\u2718 $1" >&2
+    echo -e "\e[91;1m\u2718 $1\e[0m" >&2
 }
 
 # @description Display success message in stderr, prefixed by cross emoji
@@ -15,5 +15,5 @@ show_error() {
 # @example
 #   show_success "There it is! World peace."
 show_success() {
-    echo -e "\e[92;1m\u2714 $1" >&2
+    echo -e "\e[92;1m\u2714 $1\e[0m" >&2
 }
