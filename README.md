@@ -20,16 +20,29 @@ Toolkit to create simple Terminal UIs using plain bash builtins
 For a list of available modules and their documentation please check the [docs/modules](./docs/modules) folder
 
 ## Tested with
-- Ubuntu 20
-- Ubuntu 22
-- Alpine 3
-- MacOS
-- Windows (Git Bash)
+
+> Since there are some weird combinations/side effects based on the platform you might use there are different side effects that might occur
+>
+> If you use it on a different platform successfully please create a PR to add a item here :)
+
+- Ubuntu 20 (Bash 5)
+  - Tilix
+  - xterm
+- Ubuntu 22 (Bash 5)
+  - Tilix
+  - xterm
+- Alpine 3 (Bash 5)
+  - xterm
+- MacOS (Bash 3)
+  - iTerm2
+- Windows 10 (Bash 4)
+  - Git Bash
+  - Windows Terminal
 
 ## Development
 
 ### Requirements
-- bash 4+
+- bash 3+
 - docker 19+
 - GNU make
 
