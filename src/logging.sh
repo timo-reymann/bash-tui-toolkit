@@ -54,24 +54,24 @@ log() {
   case "${level}" in
       "$LOG_INFO")
         level="INFO"
-        color='\e[1;36m'
+        color='\033[1;36m'
         ;;
 
       "$LOG_DEBUG")
         level="DEBUG"
-        color='\e[1;34m'
+        color='\033[1;34m'
         ;;
 
       "$LOG_WARN")
         level="WARN"
-        color='\e[0;33m'
+        color='\033[0;33m'
         ;;
 
       "$LOG_ERROR")
         level="ERROR"
-        color='\e[0;31m'
+        color='\033[0;31m'
         ;;
   esac
 
-  echo -e "[${color}$(printf '%-5s' "${level}")\e[0m] \e[1;35m$(date +'%Y-%m-%dT%H:%M:%S')\e[0m ${message}"
+  echo -e "[${color}$(printf '%-5s' "${level}")\033[0m] \033[1;35m$(date +'%Y-%m-%dT%H:%M:%S')\033[0m ${message}"
 }
