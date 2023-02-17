@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.2.1...1.2.2) (2023-02-17)
+
+
+### Bug Fixes
+
+* Full compability on macos ([#2](https://github.com/timo-reymann/bash-tui-toolkit/issues/2)) ([9fa16c8](https://github.com/timo-reymann/bash-tui-toolkit/commit/9fa16c82957b58c72b575a40a055e0e5048f72bf))
+
 ## [1.2.1](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.2.0...1.2.1) (2023-02-17)
 
 
