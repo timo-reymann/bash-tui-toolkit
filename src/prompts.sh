@@ -8,18 +8,29 @@ _get_cursor_row() {
     read -sdR -p $'\E[6n' ROW COL;
     echo "${ROW#*[}";
 }
-_cursor_blink_on() { echo -en "\e[?25h" >&2; }
-_cursor_blink_off() { echo -en "\e[?25l" >&2; }
-_cursor_to() { echo -en "\e[$1;${2:-1}H" >&2; }
+_cursor_blink_on() { echo -en "\033[?25h" >&2; }
+_cursor_blink_off() { echo -en "\033[?25l" >&2; }
+_cursor_to() { echo -en "\033[$1;$2H" >&2; }
 
 # key input helper
 _key_input() {
-    read -s -r -N1 key 2>/dev/null >&2
-    case $key in
-        "A")   echo "up"; ;;
-        "B")   echo "down"; ;;
-        " ")   echo "space"; ;;
-        $'\n') echo "enter" ;;
+    local ESC=$'\033'
+    local IFS=''
+
+    read -rsn1 a
+    # is the first character ESC?
+    if [[ $ESC == $a ]]; then
+        read -rsn2 b
+    fi
+
+    local input="${a}${b}"
+    case $input in
+        $ESC[A) echo up ;;
+        $ESC[B) echo down ;;
+        $ESC[C) echo right ;;
+        $ESC[D) echo left ;;
+        '') echo enter ;;
+        ' ') echo space ;;
     esac
 }
 
@@ -36,7 +47,7 @@ _new_line_foreach_item() {
 
 # display prompt text without linebreak
 _prompt_text() {
-    echo -en "\e[32m?\e[0m\e[1m ${1}\e[0m " >&2
+    echo -en "\033[32m?\033[0m\033[1m ${1}\033[0m " >&2
 }
 
 # decrement counter $1, considering out of range for $2
@@ -61,8 +72,8 @@ _increment_selected() {
 
 # checks if $1 contains element $2
 _contains() {
-    items=$1
-    search=$2
+    local items=$1
+    local search=$2
     for item in "${items[@]}"; do
         if [ "$item" == "$search" ]; then return 0; fi
     done
@@ -94,16 +105,16 @@ input() {
 #   if [ "$confirmed" = "0" ]; then echo "No?"; else echo "Yes!"; fi
 confirm() {
     _prompt_text "$1 (y/N)"
-    echo -en "\e[36m\c " >&2
+    echo -en "\033[36m\c " >&2
     local result=""
     echo -n " " >&2
     until [[ "$result" == "y" ]] || [[ "$result" == "N" ]]
     do
-        echo -e "\e[1D\c " >&2
+        echo -e "\033[1D\c " >&2
         # shellcheck disable=SC2162
         read -n1 result
     done
-    echo -en "\e[0m" >&2
+    echo -en "\033[0m" >&2
 
     case $result in
         y) echo -n 1; ;;
@@ -146,7 +157,7 @@ list() {
         for opt in "${opts[@]}"; do
             _cursor_to $((startrow + idx))
             if [ $idx -eq $selected ]; then
-                printf "\e[0m\e[36m\u276F\e[0m \e[36m%s\e[0m" "$opt" >&2
+                printf "\033[0m\033[36m❯\033[0m \033[36m%s\033[0m" "$opt" >&2
             else
                 printf "  %s" "$opt" >&2
             fi
@@ -167,7 +178,7 @@ list() {
     _cursor_to "${lastrow}"
     _cursor_blink_on
 
-   echo -n "${selected}"
+    echo -n "${selected}"
 }
 
 # @description Render a text based list of options, where multiple can be selected by the
@@ -205,14 +216,14 @@ checkbox() {
             _cursor_to $((startrow + idx))
             local icon
             if _contains "${checked[*]}" $idx; then
-                icon=$(echo -en "\u25C9")
+                icon="◉"
             else
-                icon=$(echo -en "\u25EF")
+                icon="◯"
             fi
-            if [ $idx -eq $selected ]; then
-                printf "%s \e[0m\e[36m\u276F\e[0m \e[36m%-50s\e[0m" "$icon" "$opt" >&2
+            if [ "$idx" == "$selected" ]; then
+                printf "%s \033[0m\033[36m❯\033[0m \033[36m%-50s\033[0m" "$icon" "$opt" >&2
             else
-                printf "%s   %-50s " "$icon" "$opt" >&2
+                printf "%s   %-50s" "$icon" "$opt" >&2
             fi
             ((idx++))
         done
@@ -222,7 +233,7 @@ checkbox() {
             enter) break;;
             space)
                 if _contains "${checked[*]}" $selected; then
-                     checked=( "${checked[@]/$selected}" )
+                    checked=( "${checked[@]/$selected}" )
                 else
                     checked+=("${selected}")
                 fi
@@ -253,7 +264,7 @@ checkbox() {
 #   pass=$(password "Enter password to use")
 password() {
     _prompt_text "$1"
-    echo -en "\e[36m" >&2
+    echo -en "\033[36m" >&2
     local password=''
     local IFS=
     while read -r -s -n1 char; do
@@ -288,10 +299,10 @@ editor() {
     echo "" >&2
 
     "${EDITOR:-vi}" "${tmpfile}" >/dev/tty
-    echo -en "\e[36m" >&2
+    echo -en "\033[36m" >&2
     # shellcheck disable=SC2002
     cat "${tmpfile}" | sed -e 's/^/  /' >&2
-    echo -en "\e[0m" >&2
+    echo -en "\033[0m" >&2
 
     cat "${tmpfile}"
 }
