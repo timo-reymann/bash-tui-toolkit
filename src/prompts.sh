@@ -70,16 +70,6 @@ _increment_selected() {
     echo -n $selected
 }
 
-# checks if $1 contains element $2
-_contains() {
-    local items=$1
-    local search=$2
-    for item in "${items[@]}"; do
-        if [ "$item" == "$search" ]; then return 0; fi
-    done
-    return 1
-}
-
 # @description Prompt for text
 # @arg $1 string Phrase for prompting to text
 # @stderr Instructions for user
@@ -214,14 +204,16 @@ checkbox() {
         local idx=0
         for opt in "${opts[@]}"; do
             _cursor_to $((startrow + idx))
-            local icon
-            if _contains "${checked[*]}" $idx; then
-                icon="◉"
-            else
-                icon="◯"
-            fi
-            if [ "$idx" == "$selected" ]; then
-                printf "%s \033[0m\033[36m❯\033[0m \033[36m%-50s\033[0m" "$icon" "$opt" >&2
+            local icon="◯"
+            for item in "${checked[@]}"; do
+                if [ "$item" == "$idx" ]; then
+                    icon="◉"
+                    break;
+                fi
+            done
+
+            if [ $idx -eq $selected ]; then
+                printf "%s \e[0m\e[36m\u276F\e[0m \e[36m%-50s\e[0m" "$icon" "$opt" >&2
             else
                 printf "%s   %-50s" "$icon" "$opt" >&2
             fi
@@ -232,7 +224,14 @@ checkbox() {
         case $(_key_input) in
             enter) break;;
             space)
-                if _contains "${checked[*]}" $selected; then
+                local found=0;
+                for item in "${checked[@]}"; do
+                    if [ "$item" == "$selected" ]; then
+                        found=1
+                        break;
+                    fi
+                done
+                if [ $found -eq 1 ]; then
                     checked=( "${checked[@]/$selected}" )
                 else
                     checked+=("${selected}")
@@ -247,7 +246,7 @@ checkbox() {
     _cursor_to "${lastrow}"
     _cursor_blink_on
 
-    IFS=" " echo -n "${checked[@]}"
+    IFS="" echo -n "${checked[@]}"
 }
 
 # @description Show password prompt displaying stars for each password character letter typed
