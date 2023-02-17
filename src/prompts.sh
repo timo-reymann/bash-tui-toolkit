@@ -82,7 +82,7 @@ _increment_selected() {
 #   # Input with validation
 #   text=$(with_validate 'input "Please enter at least one character and confirm with enter"' validate_present)
 input() {
-    _prompt_text "$1"; echo -en "\e[36m\c" >&2
+    _prompt_text "$1"; echo -en "\033[36m\c" >&2
     read -r text
     echo -n "${text}"
 }
