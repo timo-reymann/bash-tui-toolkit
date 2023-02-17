@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.2.3...1.2.4) (2023-02-17)
+
+
+### Bug Fixes
+
+* Fix input color code ([23f8d42](https://github.com/timo-reymann/bash-tui-toolkit/commit/23f8d428981dcc57d1769d020e842e94df7902b7))
+
 ## [1.2.3](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.2.2...1.2.3) (2023-02-17)
 
 
