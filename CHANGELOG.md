@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.2.2...1.2.3) (2023-02-17)
+
+
+### Bug Fixes
+
+* Trigger release ([0945b01](https://github.com/timo-reymann/bash-tui-toolkit/commit/0945b01e1bea73c9063f903e8e4adc3632a023c5))
+
 ## [1.2.2](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.2.1...1.2.2) (2023-02-17)
 
 
