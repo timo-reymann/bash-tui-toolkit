@@ -35,6 +35,7 @@ For a list of available modules and their documentation please check the [docs/m
 | MacOS   | Monterey      | iTerm2            | 3                  | ✔️
 | Windows | 10            | Windows Terminal  | 4                  | ✔️
 | Windows | 10            | Git Bash          | 4                  | ✔️
+| Windows | 10            | Hyper             | 4                  | ✔️
 
 <!--
 if you encounter a platform where there are problems feel free to add works with ❌
