@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.1.1...1.2.0) (2023-02-17)
+
+
+### Features
+
+* Add platform helpers ([f6a6e91](https://github.com/timo-reymann/bash-tui-toolkit/commit/f6a6e91d2f3dfd2aa1c4366b39ac8ea1de42e4c0))
+
 ## [1.1.1](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.1.0...1.1.1) (2023-02-16)
 
 
