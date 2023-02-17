@@ -19,16 +19,16 @@ _key_input() {
 
     read -rsn1 a
     # is the first character ESC?
-    if [[ $ESC == $a ]]; then
+    if [[ "$ESC" == "$a" ]]; then
         read -rsn2 b
     fi
 
     local input="${a}${b}"
-    case $input in
-        $ESC[A) echo up ;;
-        $ESC[B) echo down ;;
-        $ESC[C) echo right ;;
-        $ESC[D) echo left ;;
+    case "$input" in
+        "$ESC[A") echo up ;;
+        "$ESC[B") echo down ;;
+        "$ESC[C") echo right ;;
+        "$ESC[D") echo left ;;
         '') echo enter ;;
         ' ') echo space ;;
     esac
@@ -98,7 +98,7 @@ confirm() {
     echo -en "\033[36m\c " >&2
     local result=""
     echo -n " " >&2
-    until [[ "$result" == "y" ]] || [[ "$result" == "N" ]]
+    until [[ "$result" == "y" ]] || [[ "$result" == "n" ]] || [[ "$result" == "Y" ]] || [[ "$result" == "N" ]]
     do
         echo -e "\033[1D\c " >&2
         # shellcheck disable=SC2162
@@ -106,9 +106,9 @@ confirm() {
     done
     echo -en "\033[0m" >&2
 
-    case $result in
-        y) echo -n 1; ;;
-        N) echo -n 0 ;;
+    case "$result" in
+        y|Y) echo -n 1 ;;
+        n|N) echo -n 0 ;;
     esac
 
     echo "" >&2
@@ -213,7 +213,7 @@ checkbox() {
             done
 
             if [ $idx -eq $selected ]; then
-                printf "%s \e[0m\e[36m\u276F\e[0m \e[36m%-50s\e[0m" "$icon" "$opt" >&2
+                printf "%s \e[0m\e[36m❯\e[0m \e[36m%-50s\e[0m" "$icon" "$opt" >&2
             else
                 printf "%s   %-50s" "$icon" "$opt" >&2
             fi
