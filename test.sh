@@ -41,13 +41,13 @@ validate_password() {
     fi
 }
 # Password prompt
-#pass=$(with_validate 'password "Enter random password"' validate_password)
+pass=$(with_validate 'password "Enter random password"' validate_password)
 
 # Checkbox
 checked=$(checkbox "Select one or more items" "${options[@]}")
 
 # text input with validation
-#text=$(with_validate 'input "Please enter something and confirm with enter"' validate_present)
+text=$(with_validate 'input "Please enter something and confirm with enter"' validate_present)
 
 # Select
 option=$(list "Select one item" "${options[@]}")

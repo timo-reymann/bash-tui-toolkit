@@ -24,6 +24,7 @@ _key_input() {
     fi
 
     local input="${a}${b}"
+    # shellcheck disable=SC1087
     case "$input" in
         "$ESC[A") echo up ;;
         "$ESC[B") echo down ;;
