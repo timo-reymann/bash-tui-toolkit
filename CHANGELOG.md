@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.2.0...1.2.1) (2023-02-17)
+
+
+### Bug Fixes
+
+* Fix select after refactor ([7f93185](https://github.com/timo-reymann/bash-tui-toolkit/commit/7f931855a5ddd07ffa35e51c61f9f6263637f073))
+
 ## [1.2.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.1.1...1.2.0) (2023-02-17)
 
 
