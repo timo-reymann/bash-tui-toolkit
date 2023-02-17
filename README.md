@@ -6,6 +6,10 @@ bash-tui-toolkit
 
 Toolkit to create simple Terminal UIs using plain bash builtins
 
+> Tested with Ubuntu, Alpine, Debian.
+>
+> MacOS currently broken with iTerm 2 -> working on it 
+
 ## Goals
 - provide a simple and clear default set of elements to use creating an interactive terminal UI
 - be clean and minimalistic
