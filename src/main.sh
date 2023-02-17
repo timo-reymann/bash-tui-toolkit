@@ -6,3 +6,6 @@ source "prompts.sh"
 source "user_feedback.sh"
 # shellcheck disable=SC1091
 source "logging.sh"
+# shellcheck disable=SC1091
+source "platform_helpers.sh"
+

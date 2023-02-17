@@ -53,6 +53,11 @@
               "path": "dist/user_feedback.sh",
               "name": "user-feedback.bash",
               "label": "Component > User-Feedback - Provides useful colored outputs for user feedback on actions"
+            },
+            {
+              "path": "dist/platform_helpers.sh",
+              "name": "platform-helpers.bash",
+              "label": "Component > Platform-Helpers - Platform specific helpers"
             }
           ]
         }

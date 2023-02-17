@@ -7,6 +7,13 @@ source main.sh
 cd - || exit 2
 
 #
+# Platform
+#
+echo "You are using the OS '$(detect_os)'"
+echo "Opener for tools/links: '$(get_opener)'"
+open_link "https://github.com"
+
+#
 # UTILS
 #
 show_error "Something went wrong"

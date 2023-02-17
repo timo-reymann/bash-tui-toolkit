@@ -12,6 +12,7 @@ generate-docs: ## Build documentation using docker container
 	@docker run --rm  bash-tui-toolkit/shdoc 'shdoc < logging.sh ' 2>&1 > docs/modules/Logging.md
 	@docker run --rm  bash-tui-toolkit/shdoc 'shdoc < prompts.sh ' 2>&1 > docs/modules/Prompts.md
 	@docker run --rm  bash-tui-toolkit/shdoc 'shdoc < user_feedback.sh ' 2>&1 > docs/modules/User-Feedback.md
+	@docker run --rm  bash-tui-toolkit/shdoc 'shdoc < platform_helpers.sh ' 2>&1 > docs/modules/Platform-Helpers.md
 
 _remove_comments_from_file:
 	@cat $(file) | sed '/^$$/d' | sed '/^#/d' | sed '/^\s*#/d' | tee $(file) > /dev/null
@@ -33,3 +34,4 @@ build: ## Bundle script to dist folder and remove all top level comments
 	@$(MAKE) _push_module module=logging
 	@$(MAKE) _push_module module=prompts
 	@$(MAKE) _push_module module=user_feedback
+	$(MAKE) _push_module module=platform_helpers
