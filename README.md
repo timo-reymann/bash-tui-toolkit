@@ -1,4 +1,4 @@
-bash-tui-toolkit
+Bash TUI Toolkit
 ===
 [![LICENSE](https://img.shields.io/github/license/timo-reymann/gpg-key-creation-assistant)](https://github.com/timo-reymann/bash-tui-toolkit/blob/main/LICENSE)
 [![CircleCI](https://circleci.com/gh/timo-reymann/bash-tui-toolkit.svg?style=shield)](https://app.circleci.com/pipelines/github/timo-reymann/bash-tui-toolkit)
