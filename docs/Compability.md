@@ -21,3 +21,5 @@ If you feel like an important one is missing feel free to create an issue or PR 
 | Windows | 10            | Windows Terminal  | 4                  | ✔️    
 | Windows | 10            | Git Bash          | 4                  | ✔️    
 | Windows | 10            | Hyper             | 4                  | ✔️    
+| Windows | 11            | Git Bash          | 4                  | ✔️
+| Windows | 11            | Windows Terminal  | 4                  | ✔️
