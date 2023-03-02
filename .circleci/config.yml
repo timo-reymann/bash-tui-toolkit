@@ -7,7 +7,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/base:2023.02
+      - image: cimg/base:2023.03
     steps:
       - checkout
       - setup_remote_docker
