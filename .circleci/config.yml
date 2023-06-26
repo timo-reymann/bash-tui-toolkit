@@ -12,6 +12,11 @@ jobs:
       - setup_remote_docker
       - semantic-release/install:
           additional_packages: '@semantic-release/exec'
+      - run:
+          name: Install os dependencies
+          command: |
+            apt-get update -y
+            apt-get install -y gettext uuid-runtime
       - semantic-release/execute
 
 workflows:
