@@ -1,3 +1,10 @@
+## [1.4.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.3.0...1.4.0) (2023-06-26)
+
+
+### Features
+
+* Update header ([13a219e](https://github.com/timo-reymann/bash-tui-toolkit/commit/13a219e77245906661419424a60c3c8c736416e1))
+
 ## [1.3.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.2.4...1.3.0) (2023-06-26)
 
 
