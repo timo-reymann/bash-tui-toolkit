@@ -28,6 +28,9 @@
           "assets": "CHANGELOG.md"
         }
       ],
+      ["@semantic-release/exec", {
+        "prepareCmd": "VERSION=${nextRelease.version} make build"
+        }],
       [
         "@semantic-release/github",
         {
