@@ -1,10 +1,13 @@
 ###############################################################################
 #                                                                             #
-#  Bash TUI Toolkit                                                           #
-#  by Timo Reymann                                                            #
+# Bash TUI Toolkit                                                            #
+# by Timo Reymann                                                             #
 #                                                                             #
 # version: $VERSION                                                           #
 # bundle:  $BUNDLE                                               #
+# github:  https://github.com/timo-reymann/bash-tui-Toolkit                   #
+#                                                                             #
+# --------------------------------------------------------------------------- #
 #                                                                             #
 # Copyright (C) 2023 Timo Reymann (mail@timo-reymann.de)                      #
 #                                                                             #
