@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.2.4...1.3.0) (2023-06-26)
+
+
+### Features
+
+* Add file headers ([c8bccd8](https://github.com/timo-reymann/bash-tui-toolkit/commit/c8bccd8ab01ecab8711685cb396736a2b61d24b9))
+
 ## [1.2.4](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.2.3...1.2.4) (2023-02-17)
 
 
