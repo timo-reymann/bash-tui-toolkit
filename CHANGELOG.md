@@ -5,6 +5,13 @@
 
 * Set release version on semantic-release ([31380e1](https://github.com/timo-reymann/bash-tui-toolkit/commit/31380e1205c3265600af0dd0f10b544dc7bad879))
 
+## [1.4.1](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.4.0...1.4.1) (2023-06-26)
+
+
+### Bug Fixes
+
+* Set release version on semantic-release ([31380e1](https://github.com/timo-reymann/bash-tui-toolkit/commit/31380e1205c3265600af0dd0f10b544dc7bad879))
+
 ## [1.4.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.3.0...1.4.0) (2023-06-26)
 
 
