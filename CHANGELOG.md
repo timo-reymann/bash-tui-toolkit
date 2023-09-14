@@ -1,3 +1,10 @@
+## [1.5.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.4.1...1.5.0) (2023-09-14)
+
+
+### Features
+
+* **#17:** Add range input ([#18](https://github.com/timo-reymann/bash-tui-toolkit/issues/18)) ([b0f528f](https://github.com/timo-reymann/bash-tui-toolkit/commit/b0f528ff1642083415e5fe3df8607671b9212b01)), closes [#17](https://github.com/timo-reymann/bash-tui-toolkit/issues/17) [#17](https://github.com/timo-reymann/bash-tui-toolkit/issues/17) [#17](https://github.com/timo-reymann/bash-tui-toolkit/issues/17)
+
 ## [1.4.1](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.4.0...1.4.1) (2023-06-26)
 
 
