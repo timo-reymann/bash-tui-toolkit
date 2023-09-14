@@ -15,6 +15,7 @@ Prompt for text
 * [password](#password)
 * [editor](#editor)
 * [with_validate](#with_validate)
+* [range](#range)
 * [validate_present](#validate_present)
 
 ### input
@@ -120,7 +121,7 @@ pass=$(password "Enter password to use")
 
 #### Arguments
 
-* **$1** (string): Phrase for promptint to text
+* **$1** (string): Phrase for prompting to text
 
 #### Output on stdout
 
@@ -164,11 +165,33 @@ pass=$(with_validate 'password "Enter random password"' validate_password)
 #### Arguments
 
 * **$1** (string): Prompt command to evaluate until validation is successful
-* #2 function validation callback (this is called once for exit code and once for status code)
+* **$2** (function): validation callback (this is called once for exit code and once for status code)
 
 #### Output on stdout
 
 * Value collected by evaluating prompt
+
+### range
+
+Display a range dialog that can incremented and decremented using the arrow keys
+
+#### Example
+
+```bash
+# Range with negative min value
+value=$(range -5 0 5)
+```
+
+#### Arguments
+
+* **$1** (string): Phrase for prompting to text
+* **$2** (int): Minimum selectable value
+* **$3** (int): Default selected value
+* **$4** (int): Maximum value of the select
+
+#### Output on stdout
+
+* Selected value using arrow keys
 
 ### validate_present
 

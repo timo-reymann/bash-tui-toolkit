@@ -319,7 +319,7 @@ editor() {
 # @description Evaluate prompt command with validation, this prompts the user for input till the validation function
 # returns with 0
 # @arg $1 string Prompt command to evaluate until validation is successful
-# @arg #2 function validation callback (this is called once for exit code and once for status code)
+# @arg $2 function validation callback (this is called once for exit code and once for status code)
 # @stdout Value collected by evaluating prompt
 # @stderr Instructions for user
 # @example
@@ -344,8 +344,8 @@ with_validate() {
 # @description Display a range dialog that can incremented and decremented using the arrow keys
 # @arg $1 string Phrase for prompting to text
 # @arg $2 int Minimum selectable value
-# @arg #3 int Default selected value
-# @arg #4 int Maximum value of the select
+# @arg $3 int Default selected value
+# @arg $4 int Maximum value of the select
 # @stdout Selected value using arrow keys
 # @stderr Instructions for user
 # @example
