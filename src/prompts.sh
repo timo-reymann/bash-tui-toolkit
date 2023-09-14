@@ -95,23 +95,32 @@ input() {
 #   confirmed=$(confirm "Should it be?")
 #   if [ "$confirmed" = "0" ]; then echo "No?"; else echo "Yes!"; fi
 confirm() {
+    # ensure cursor and input echoing back on upon a ctrl+c during read -s
+    trap "_cursor_blink_on; stty echo; exit" 2
+    _cursor_blink_off
+
     _prompt_text "$1 (y/N)"
     echo -en "\033[36m\c " >&2
+
+    local start_row; start_row=$(_get_cursor_row)
+    local current_row; current_row=$((start_row - 1))
+
     local result=""
     echo -n " " >&2
-    until [[ "$result" == "y" ]] || [[ "$result" == "n" ]] || [[ "$result" == "Y" ]] || [[ "$result" == "N" ]]
+    while true;
     do
         echo -e "\033[1D\c " >&2
         # shellcheck disable=SC2162
         read -n1 result
+
+        case "$result" in
+          y|Y) echo -n 1; break; ;;
+          n|N) echo -n 0; break; ;;
+          *) _cursor_to "${current_row}";;
+        esac
     done
+
     echo -en "\033[0m" >&2
-
-    case "$result" in
-        y|Y) echo -n 1 ;;
-        n|N) echo -n 0 ;;
-    esac
-
     echo "" >&2
 }
 
@@ -252,7 +261,7 @@ checkbox() {
 
 # @description Show password prompt displaying stars for each password character letter typed
 # it also allows deleting input
-# @arg $1 string Phrase for promptint to text
+# @arg $1 string Phrase for prompting to text
 # @stdout password as written by user
 # @stderr Instructions for user
 # @example
@@ -330,6 +339,68 @@ with_validate() {
             show_error "$($2 "$val")";
         fi
     done
+}
+
+# @description Display a range dialog that can incremented and decremented using the arrow keys
+# @arg $1 string Phrase for prompting to text
+# @arg $2 int Minimum selectable value
+# @arg #3 int Default selected value
+# @arg #4 int Maximum value of the select
+# @stdout Selected value using arrow keys
+# @stderr Instructions for user
+# @example
+#   # Range with negative min value
+#   value=$(range -5 0 5)
+range() {
+  local min="$2"
+  local current="$3"
+  local max="$4"
+  local selected="${current}"
+
+  local max_len_current; max_len_current=0
+  if [[ "${#min}" -gt "${#max}" ]]; then
+    max_len_current="${#min}"
+  else
+    max_len_current="${#max}"
+  fi
+  local padding; padding="$(printf "%-${max_len_current}s" "")"
+  local start_row; start_row=$(_get_cursor_row)
+  local current_row; current_row=$((start_row - 1))
+
+  # ensure cursor and input echoing back on upon a ctrl+c during read -s
+  trap "_cursor_blink_on; stty echo; exit" 2
+  _cursor_blink_off
+
+  _check_range() {
+    val=$1
+
+    if [[ "$val" -gt "$max" ]]; then
+      val=$min
+    elif [[ "$val" -lt "$min" ]]; then
+      val=$max
+    fi
+
+    echo "$val"
+  }
+
+  while true; do
+    _prompt_text "$1"
+    printf "\033[37m%s\033[0m \033[1;90m❮\033[0m \033[36m%s%s\033[0m \033[1;90m❯\033[0m \033[37m%s\033[0m\n" "$min" "${padding:${#selected}}" "$selected" "$max" >&2
+    case $(_key_input) in
+      enter)
+        break;
+        ;;
+      left)
+         selected="$(_check_range $((selected - 1)))";
+        ;;
+      right)
+        selected="$(_check_range $((selected + 1)))";
+        ;;
+    esac;
+    _cursor_to "$current_row"
+  done;
+
+  echo "$selected"
 }
 
 # @description Validate a prompt returned any value

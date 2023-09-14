@@ -32,6 +32,8 @@ log "$LOG_ERROR" "Error message"
 # PROMPTS
 #
 
+ranged="$(range "foo bar" "-5" 0 5)"
+
 options=("one" "two" "three" "four" "a" "b" "c" "d" "e")
 
 validate_password() {
@@ -71,6 +73,8 @@ checkbox:
 $checked
 confirm:
 $confirmed
+range:
+$ranged
 editor:
 $editor
 "
