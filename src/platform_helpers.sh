@@ -21,7 +21,7 @@ detect_os() {
 get_opener() {
     local cmd
     case "$(detect_os)" in
-        darwin)  cmd="open"; ;;
+        macos)  cmd="open"; ;;
         linux)   cmd="xdg-open"; ;;
         windows) cmd="start"; ;;
         *)       cmd=""; ;;
