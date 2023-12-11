@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.5.0...1.5.1) (2023-12-11)
+
+
+### Bug Fixes
+
+* **platform_helper:** Fix get_opener MacOS detection ([#21](https://github.com/timo-reymann/bash-tui-toolkit/issues/21)) ([b734717](https://github.com/timo-reymann/bash-tui-toolkit/commit/b7347175fe9deec9bd1aa0a27cdaec339c5597c9))
+
 ## [1.5.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.4.1...1.5.0) (2023-09-14)
 
 
