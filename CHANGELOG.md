@@ -1,3 +1,10 @@
+## [1.6.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.5.1...1.6.0) (2024-06-13)
+
+
+### Features
+
+* Introduce basic vim bindings in prompts ([#28](https://github.com/timo-reymann/bash-tui-toolkit/issues/28)) ([8b760d1](https://github.com/timo-reymann/bash-tui-toolkit/commit/8b760d13baab43e8f1d7e2b09d622b759b6acaf2))
+
 ## [1.5.1](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.5.0...1.5.1) (2023-12-11)
 
 
