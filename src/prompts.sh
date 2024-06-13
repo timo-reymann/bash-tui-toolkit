@@ -26,10 +26,10 @@ _key_input() {
     local input="${a}${b}"
     # shellcheck disable=SC1087
     case "$input" in
-        "$ESC[A") echo up ;;
-        "$ESC[B") echo down ;;
-        "$ESC[C") echo right ;;
-        "$ESC[D") echo left ;;
+        "$ESC[A" | "k") echo up ;;
+        "$ESC[B" | "j") echo down ;;
+        "$ESC[C" | "l") echo right ;;
+        "$ESC[D" | "h") echo left ;;
         '') echo enter ;;
         ' ') echo space ;;
     esac
