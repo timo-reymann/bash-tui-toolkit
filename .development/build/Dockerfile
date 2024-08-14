@@ -1,4 +1,4 @@
-FROM golang:1.22-alpine
+FROM golang:1.23-alpine
 RUN apk add bash git && \
     mkdir -p /opt &&  \
     mkdir -p /workspace && \
