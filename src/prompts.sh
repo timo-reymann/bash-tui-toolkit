@@ -2,10 +2,14 @@
 # @name Prompts
 # @brief Inquirer.js inspired prompts
 
+_read_stdin() {
+	read $@ </dev/tty
+}
+
 _get_cursor_row() {
     local IFS=';'
     # shellcheck disable=SC2162,SC2034
-    read -sdR -p $'\E[6n' ROW COL;
+    _read_stdin -sdR -p $'\E[6n' ROW COL;
     echo "${ROW#*[}";
 }
 _cursor_blink_on() { echo -en "\033[?25h" >&2; }
@@ -17,10 +21,10 @@ _key_input() {
     local ESC=$'\033'
     local IFS=''
 
-    read -rsn1 a
+    _read_stdin -rsn1 a
     # is the first character ESC?
     if [[ "$ESC" == "$a" ]]; then
-        read -rsn2 b
+        _read_stdin -rsn2 b
     fi
 
     local input="${a}${b}"
@@ -83,7 +87,7 @@ _increment_selected() {
 #   text=$(with_validate 'input "Please enter at least one character and confirm with enter"' validate_present)
 input() {
     _prompt_text "$1"; echo -en "\033[36m\c" >&2
-    read -r text
+    _read_stdin -r text
     echo -n "${text}"
 }
 
@@ -111,7 +115,7 @@ confirm() {
     do
         echo -e "\033[1D\c " >&2
         # shellcheck disable=SC2162
-        read -n1 result
+        _read_stdin -n1 result
 
         case "$result" in
           y|Y) echo -n 1; break; ;;
@@ -276,7 +280,7 @@ password() {
     echo -en "\033[36m" >&2
     local password=''
     local IFS=
-    while read -r -s -n1 char; do
+    while _read_stdin -r -s -n1 char; do
         # ENTER pressed; output \n and break.
         [[ -z "${char}" ]] && { printf '\n' >&2; break; }
         # BACKSPACE pressed; remove last character
