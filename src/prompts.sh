@@ -3,6 +3,7 @@
 # @brief Inquirer.js inspired prompts
 
 _read_stdin() {
+	# shellcheck disable=SC2162,SC2068
 	read $@ </dev/tty
 }
 
@@ -23,10 +24,12 @@ _key_input() {
 
     _read_stdin -rsn1 a
     # is the first character ESC?
+	# shellcheck disable=SC2154
     if [[ "$ESC" == "$a" ]]; then
         _read_stdin -rsn2 b
     fi
 
+	# shellcheck disable=SC2154
     local input="${a}${b}"
     # shellcheck disable=SC1087
     case "$input" in
@@ -88,7 +91,8 @@ _increment_selected() {
 input() {
     _prompt_text "$1"; echo -en "\033[36m\c" >&2
     _read_stdin -r text
-    echo -n "${text}"
+    # shellcheck disable=SC2154
+	echo -n "${text}"
 }
 
 # @description Show confirm dialog for yes/no
