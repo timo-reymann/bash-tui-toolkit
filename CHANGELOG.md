@@ -1,3 +1,10 @@
+## [1.8.3](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.8.2...1.8.3) (2024-08-22)
+
+
+### Bug Fixes
+
+* Set author for gh release and make upload to gh pages more robust ([7b73805](https://github.com/timo-reymann/bash-tui-toolkit/commit/7b7380592be3c5262910b7ed49b9546b23d0acfa))
+
 ## [1.8.2](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.8.1...1.8.2) (2024-08-22)
 
 
