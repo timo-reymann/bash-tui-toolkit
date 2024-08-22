@@ -1,3 +1,10 @@
+## [1.8.4](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.8.3...1.8.4) (2024-08-22)
+
+
+### Bug Fixes
+
+* Fix github token clone ([2d2c46e](https://github.com/timo-reymann/bash-tui-toolkit/commit/2d2c46efc5f8ae2cd04516900a4a0c16fe4415a8))
+
 ## [1.8.3](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.8.2...1.8.3) (2024-08-22)
 
 
