@@ -1,3 +1,10 @@
+## [1.7.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.6.0...1.7.0) (2024-08-22)
+
+
+### Features
+
+* **#31:** Read from tty device instead of stdin ([a80a355](https://github.com/timo-reymann/bash-tui-toolkit/commit/a80a3557e46177feebf6780928647c1e204615f8)), closes [#31](https://github.com/timo-reymann/bash-tui-toolkit/issues/31)
+
 ## [1.6.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.5.1...1.6.0) (2024-06-13)
 
 
