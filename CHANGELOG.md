@@ -1,3 +1,10 @@
+## [1.8.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.7.0...1.8.0) (2024-08-22)
+
+
+### Features
+
+* Add gh pages upload for releases ([dc79f7d](https://github.com/timo-reymann/bash-tui-toolkit/commit/dc79f7d59a23da3cb960a9a8377a1aad945eeb5e))
+
 ## [1.7.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.6.0...1.7.0) (2024-08-22)
 
 
