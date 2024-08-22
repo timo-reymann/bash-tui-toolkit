@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.8.0...1.8.1) (2024-08-22)
+
+
+### Bug Fixes
+
+* Fix gh pages upload for releases ([9285fc3](https://github.com/timo-reymann/bash-tui-toolkit/commit/9285fc38c068e4bae57490fd0ecc2c692826d80f))
+
 ## [1.8.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.7.0...1.8.0) (2024-08-22)
 
 
