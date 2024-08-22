@@ -38,6 +38,6 @@ workflows:
       - upload-release-to-gh-pages:
           filters:
             tags:
-              only: /^test.*/
+              only: /.*/
             branches:
               ignore: /.*/
