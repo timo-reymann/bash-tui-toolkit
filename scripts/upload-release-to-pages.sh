@@ -12,7 +12,7 @@ echo "Created folder $tmp_folder ..."
 cd "${tmp_folder}"
 
 echo "Clone gh-pages branch ..."
-git clone https://github.com/timo-reymann/bash-tui-toolkit.git --branch gh-pages "${tmp_folder}"
+git clone https://token:${GITHUB_TOKEN}@github.com/timo-reymann/bash-tui-toolkit.git --branch gh-pages "${tmp_folder}"
 
 echo "Create folder for version ..."
 mkdir -p "${release_tag}"
