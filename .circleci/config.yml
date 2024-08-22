@@ -18,6 +18,13 @@ jobs:
             sudo apt-get update -y
             sudo apt-get install -y gettext uuid-runtime
       - semantic-release/execute
+  upload-release-to-gh-pages:
+    executor: semantic-release/default
+    steps:
+      - checkout
+      - run:
+          name: Upload release to pages
+          command: ./upload-release-to-pages.sh "${CIRCLE_TAG}"
 
 workflows:
   main:
@@ -28,4 +35,9 @@ workflows:
       - semantic-release:
           requires:
             - shellcheck
-
+      - upload-release-to-gh-pages:
+          filters:
+            tags:
+              only: /^test.*/
+            branches:
+              ignore: /.*/
