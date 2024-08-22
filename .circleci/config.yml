@@ -24,7 +24,7 @@ jobs:
       - checkout
       - run:
           name: Upload release to pages
-          command: ./upload-release-to-pages.sh "${CIRCLE_TAG}"
+          command: ./scripts/upload-release-to-pages.sh "${CIRCLE_TAG}"
 
 workflows:
   main:
