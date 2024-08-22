@@ -23,6 +23,14 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Configure git
+          command: |
+            git config --global user.email "no-reply@circleci.com"
+            git config --global user.name "CircleCI"
+      - run:
+          name: Wait a bit for release tag to be created
+          command: sleep 10
+      - run:
           name: Upload release to pages
           command: ./scripts/upload-release-to-pages.sh "${CIRCLE_TAG}"
 
