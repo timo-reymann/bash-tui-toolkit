@@ -27,9 +27,30 @@ Bash TUI Toolkit
 
 ## Installation
 
+### Download and include in your scripts
+
 1. Download the bundle (entire lib) or single compoennt
    from [releases](https://github.com/timo-reymann/bash-tui-toolkit/releases)
-2. Source the bundle in your script or embed
+2. Source the bundle in your script or embed, e.g.
+   ```bash
+   source ./lib/bundle.bash
+   ```
+   or simply copy it into your script.
+
+### Source directly from release
+
+> Note that this is not a recommended approach and only intended for quick testing or trying out another version.
+
+1. Choose the bundle in the version you want to use from the available releases on the [gh-pages branch](https://github.com/timo-reymann/bash-tui-toolkit/tree/gh-pages).
+2. Source it to your script on runtime:
+   1. Using `wget`
+      ```bash
+      source <(wget -qO- https://bash-tui-toolkit.timo-reymann.de/latest/prompts.sh)
+      ```
+   2. Using `curl`
+      ```bash
+      source <(curl -sS https://raw.githubusercontent.com/timo-reymann/deterministic-zip/main/installer)
+      ```
 
 ## Usage
 
