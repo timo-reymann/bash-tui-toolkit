@@ -45,11 +45,11 @@ Bash TUI Toolkit
 2. Source it to your script on runtime:
    1. Using `wget`
       ```bash
-      source <(wget -qO- https://bash-tui-toolkit.timo-reymann.de/latest/prompts.sh)
+      source <(wget -qO- https://bash-tui-toolkit.timo-reymann.de/latest/bundle.bash)
       ```
    2. Using `curl`
       ```bash
-      source <(curl -sS https://raw.githubusercontent.com/timo-reymann/deterministic-zip/main/installer)
+      source <(curl -qsS https://bash-tui-toolkit.timo-reymann.de/latest/bundle.bash)
       ```
 
 ## Usage
