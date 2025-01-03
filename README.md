@@ -69,7 +69,7 @@ the target system.
 ## Documentation
 
 - [Modules](./docs/modules) - Modules available and their usage
-- [Compability table](./docs/Compability.md) - Known combinations of OS/Bash Version/Terminal emulators that work guaranteed
+- [Compability table](./docs/Compatibility) - Known combinations of OS/Bash Version/Terminal emulators that work guaranteed
 
 ## Contributing
 
