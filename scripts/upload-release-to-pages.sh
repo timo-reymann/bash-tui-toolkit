@@ -36,7 +36,8 @@ echo "Link ${release_tag} to latest ..."
 rm latest || true
 ln -s "${release_tag}" latest
 
-cp -R "${PROJECT_DIR}/docs" "${release_tag}/docs"
+rm -rf "${release_tag}/docs"
+cp -R "${PROJECT_DIR}/docs/" "${release_tag}/docs/"
 
 git stage .
 git commit -m "chore: Add assets for ${release_tag}\
