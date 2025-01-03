@@ -41,7 +41,7 @@ Bash TUI Toolkit
 
 > Note that this is not a recommended approach and only intended for quick testing or trying out another version.
 
-1. Choose the bundle in the version you want to use from the available releases on the [gh-pages branch](https://github.com/timo-reymann/bash-tui-toolkit/tree/gh-pages).
+1. Choose the bundle in the version you want to use from the available releases in the [docs](https://bash-tui-toolkit.timo-reymann.de/).
 2. Source it to your script on runtime:
    1. Using `wget`
       ```bash
@@ -54,7 +54,7 @@ Bash TUI Toolkit
 
 ## Usage
 
-For a list of available modules and their documentation please check the [docs]([./docs/modules](https://bash-tui-toolkit.timo-reymann.de/)).
+For a list of available modules and their documentation please check the [docs](https://bash-tui-toolkit.timo-reymann.de/).
 
 For a complete playground demo check [test.sh](./test.sh).
 
@@ -68,6 +68,7 @@ the target system.
 
 ## Documentation
 
+- [GitHub Pages](https://bash-tui-toolkit.timo-reymann.de/) - Versioned releases, documentation and compability matrix
 - [Modules](./docs/modules) - Modules available and their usage
 - [Compability table](./docs/Compatibility) - Known combinations of OS/Bash Version/Terminal emulators that work guaranteed
 
