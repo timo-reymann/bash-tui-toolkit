@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
+PROJECT_DIR="$(dirname "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")")"
+
 release_tag="$1"
 if [[ -z "$release_tag" ]]; then
   echo "Usage: $0 <release_tag>"
@@ -33,6 +35,8 @@ cd -
 echo "Link ${release_tag} to latest ..."
 rm latest || true
 ln -s "${release_tag}" latest
+
+cp -R "${PROJECT_DIR}/docs" "${release_tag}/docs"
 
 git stage .
 git commit -m "chore: Add assets for ${release_tag}\
