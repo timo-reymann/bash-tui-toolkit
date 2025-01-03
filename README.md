@@ -54,7 +54,7 @@ Bash TUI Toolkit
 
 ## Usage
 
-For a list of available modules and their documentation please check the [docs/modules](./docs/modules) folder
+For a list of available modules and their documentation please check the [docs]([./docs/modules](https://bash-tui-toolkit.timo-reymann.de/)).
 
 For a complete playground demo check [test.sh](./test.sh).
 
