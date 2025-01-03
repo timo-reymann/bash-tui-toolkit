@@ -1,5 +1,5 @@
 ---
-title: Index
+title: bash-tui-toolkit
 ---
 {% assign static_files = site.static_files | sort: 'path' | reverse  %}
 
@@ -13,6 +13,8 @@ title: Index
 
 {% endunless %}
 {% endfor %}
+
+Toolkit to create simple Terminal UIs using plain bash builtins
 
 <h1>Available Versions</h1>
 <ul>
