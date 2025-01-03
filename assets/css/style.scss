@@ -28,6 +28,15 @@ a {
     .index-link {
         color: #fcfaf9;
     }
+
+    .markdown-body table tr {
+        background-color: #212830;
+        border-top: 1px solid rgb(128, 128, 128);
+    }
+
+    .markdown-body table tr:nth-child(2n) {
+        background-color: #3d444db3;
+    }
 }
 
 
