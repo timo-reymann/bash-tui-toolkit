@@ -1,3 +1,10 @@
+## [1.9.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.8.4...1.9.0) (2025-01-03)
+
+
+### Features
+
+* **scripts:** Upload documentation for releases ([27e80da](https://github.com/timo-reymann/bash-tui-toolkit/commit/27e80da22421a0cf58e99b4ee24d9bf15c9546c5))
+
 ## [1.8.4](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.8.3...1.8.4) (2024-08-22)
 
 
