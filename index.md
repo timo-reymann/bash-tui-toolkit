@@ -1,7 +1,7 @@
 ---
 title: Index
 ---
-{% assign static_files = site.static_files | sort: 'path'  %}
+{% assign static_files = site.static_files | sort: 'path' | reverse  %}
 
 {% assign unique_versions = '' | split: ',' %} <!-- Initialize an empty array -->
 {% for file in static_files %}
@@ -14,7 +14,7 @@ title: Index
 {% endunless %}
 {% endfor %}
 
-<h2>Versions</h2>
+<h1>Available Versions</h1>
 <ul>
   {% for version in unique_versions %}
     {% if version %}
