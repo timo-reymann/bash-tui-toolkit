@@ -35,6 +35,7 @@ log "$LOG_ERROR" "Error message"
 ranged="$(range "foo bar" "-5" 0 5)"
 
 options=("one" "two" "three" "four" "a" "b" "c" "d" "e")
+pre_selected_options=("one" "two" "three" "four" "@#a#@" "b" "c" "d" "@#e#@")
 
 validate_password() {
     if [ ${#1} -lt 10 ];then
@@ -46,7 +47,7 @@ validate_password() {
 pass=$(with_validate 'password "Enter random password"' validate_password)
 
 # Checkbox
-checked=$(checkbox "Select one or more items" "${options[@]}")
+checked=$(checkbox "Select one or more items" "${pre_selected_options[@]}")
 
 # text input with validation
 text=$(with_validate 'input "Please enter something and confirm with enter"' validate_present)
