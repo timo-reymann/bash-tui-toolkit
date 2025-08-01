@@ -17,6 +17,8 @@ If you feel like an important one is missing feel free to create an issue or PR 
 | Ubuntu  | 22            | Tilix             | 5                  | ✔️    
 | Ubuntu  | 24            | Tilix             | 5                  | ✔️   
 | Ubuntu  | 24            | Ghostty           | 5                  | ✔️  
+| Ubuntu  | 25            | Tilix             | 5                  | ✔️   
+| Ubuntu  | 25            | Ghostty           | 5                  | ✔️  
 | Alpine  | 3             | n/a               | 5                  | ✔️    
 | MacOS   | Monterey      | iTerm             | 3                  | ✔️    
 | MacOS   | Monterey      | iTerm2            | 3                  | ✔️  
