@@ -1,3 +1,10 @@
+## [1.10.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.9.0...1.10.0) (2025-08-01)
+
+
+### Features
+
+* [[#38](https://github.com/timo-reymann/bash-tui-toolkit/issues/38)] Add possibility to preselect checkbox items ([a152047](https://github.com/timo-reymann/bash-tui-toolkit/commit/a152047da5d741a8c86181d1ebfe3bf517fbf448))
+
 ## [1.9.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.8.4...1.9.0) (2025-01-03)
 
 
