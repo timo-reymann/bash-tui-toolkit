@@ -86,6 +86,7 @@ echo "Your choice: ${options[$option]}"
 Render a text based list of options, where multiple can be selected by the
 user using up, down and enter keys and returns the chosen option.
 Inspired by https://unix.stackexchange.com/questions/146570/arrow-key-enter-menu/415155#415155
+To preselect an option surround it with `@#`, like so: `@#<value>#@`
 
 #### Example
 
@@ -97,7 +98,7 @@ echo "Your choices: ${checked}"
 
 #### Arguments
 
-* **$1** (string): Phrase for promptint to text
+* **$1** (string): Phrase for prompting to text
 * **$2** (array): List of options (max 256)
 
 #### Output on stdout

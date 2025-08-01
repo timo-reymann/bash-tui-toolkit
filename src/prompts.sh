@@ -192,7 +192,8 @@ list() {
 # @description Render a text based list of options, where multiple can be selected by the
 # user using up, down and enter keys and returns the chosen option.
 # Inspired by https://unix.stackexchange.com/questions/146570/arrow-key-enter-menu/415155#415155
-# @arg $1 string Phrase for promptint to text
+# To preselect an option surround it with `@#`, like so: `@#<value>#@`
+# @arg $1 string Phrase for prompting to text
 # @arg $2 array List of options (max 256)
 # @stdout selected index (0 for opt1, 1 for opt2 ...)
 # @stderr Instructions for user
@@ -217,6 +218,18 @@ checkbox() {
 
     local selected=0
     local checked=()
+
+    local idx=0
+    for opt in "${opts[@]}"; do
+      if [[ "$opt" =~ @#.*#@ ]]; then
+        checked+=("$idx")
+        opt_strip="${opt/@#/}"
+        opt_strip="${opt_strip/\#@/}"
+        opts["$idx"]="${opt_strip}"
+      fi
+      ((idx++))
+    done
+
     while true; do
         # print options by overwriting the last lines
         local idx=0
