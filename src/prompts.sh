@@ -164,7 +164,7 @@ list() {
         local idx=0
         for opt in "${opts[@]}"; do
             _cursor_to $((startrow + idx))
-            if [ $idx -eq $selected ]; then
+            if [ "$idx" -eq "$selected" ]; then
                 printf "\033[0m\033[36m❯\033[0m \033[36m%s\033[0m" "$opt" >&2
             else
                 printf "  %s" "$opt" >&2
