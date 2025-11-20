@@ -2,7 +2,7 @@ version: "2.1"
 
 orbs:
   shellcheck: circleci/shellcheck@3.4.0
-  semantic-release: trustedshops-public/semantic-release@6.0.0
+  semantic-release: trustedshops-public/semantic-release@6.1.0
 
 jobs:
   semantic-release:
