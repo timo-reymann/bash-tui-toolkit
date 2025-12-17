@@ -1,3 +1,9 @@
+## [1.10.1](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.10.0...1.10.1) (2025-12-17)
+
+### Bug Fixes
+
+* Add string variable in range example ([#43](https://github.com/timo-reymann/bash-tui-toolkit/issues/43)) ([fa40880](https://github.com/timo-reymann/bash-tui-toolkit/commit/fa4088076a32bfe0c2438701272711ddc7c5d71d))
+
 ## [1.10.0](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.9.0...1.10.0) (2025-08-01)
 
 
