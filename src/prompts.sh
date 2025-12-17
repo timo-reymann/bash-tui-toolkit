@@ -371,7 +371,7 @@ with_validate() {
 # @stderr Instructions for user
 # @example
 #   # Range with negative min value
-#   value=$(range -5 0 5)
+#   value=$(range "Pick a number" -5 0 5)
 range() {
   local min="$2"
   local current="$3"
