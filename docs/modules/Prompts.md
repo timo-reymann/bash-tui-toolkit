@@ -180,7 +180,7 @@ Display a range dialog that can incremented and decremented using the arrow keys
 
 ```bash
 # Range with negative min value
-value=$(range -5 0 5)
+value=$(range "Pick a number" -5 0 5)
 ```
 
 #### Arguments
