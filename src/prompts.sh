@@ -328,7 +328,7 @@ editor() {
     _prompt_text "$1"
     echo "" >&2
 
-    "${EDITOR:-vi}" "${tmpfile}" >/dev/tty
+    ${EDITOR:-vi} "${tmpfile}" >/dev/tty
     echo -en "\033[36m" >&2
     # shellcheck disable=SC2002
     cat "${tmpfile}" | sed -e 's/^/  /' >&2
