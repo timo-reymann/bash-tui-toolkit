@@ -1,3 +1,9 @@
+## [1.10.2](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.10.1...1.10.2) (2026-02-01)
+
+### Bug Fixes
+
+* Support for multi-word EDITOR value ([#44](https://github.com/timo-reymann/bash-tui-toolkit/issues/44)) ([8d3cbd7](https://github.com/timo-reymann/bash-tui-toolkit/commit/8d3cbd788b47f437aec66b13ce1ac9999e7a938f))
+
 ## [1.10.1](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.10.0...1.10.1) (2025-12-17)
 
 ### Bug Fixes
