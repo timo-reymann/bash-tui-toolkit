@@ -1,3 +1,6 @@
+# License: apache-2.0
+LABEL org.opencontainers.image.licenses="apache-2.0"
+
 FROM golang:1.26-alpine
 RUN apk add bash git && \
     mkdir -p /opt &&  \
