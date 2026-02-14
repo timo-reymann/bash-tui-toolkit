@@ -1,3 +1,6 @@
+# License: apache-2.0
+LABEL org.opencontainers.image.licenses="apache-2.0"
+
 FROM alpine:3
 RUN apk add git bash make gawk
 RUN mkdir -p /workspace &&  \
