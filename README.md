@@ -13,10 +13,6 @@ Bash TUI Toolkit
     Toolkit to create interactive and shiny terminal UIs using plain bash builtins
 </p>
 
-<p align="center">
-<img width="800" src=".github/images/demo.gif">
-</p>
-
 ## Features
 
 - clean and standardized API
