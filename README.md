@@ -13,6 +13,9 @@ Bash TUI Toolkit
     Toolkit to create interactive and shiny terminal UIs using plain bash builtins
 </p>
 
+<video src='./.github/demo.mp4' width=512></video>
+
+
 ## Features
 
 - clean and standardized API
