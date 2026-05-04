@@ -33,10 +33,10 @@ _key_input() {
     local input="${a}${b}"
     # shellcheck disable=SC1087
     case "$input" in
-        "$ESC[A" | "k") echo up ;;
-        "$ESC[B" | "j") echo down ;;
-        "$ESC[C" | "l") echo right ;;
-        "$ESC[D" | "h") echo left ;;
+        "$ESC[A" | "${ESC}OA" | "k") echo up ;;
+        "$ESC[B" | "${ESC}OB" | "j") echo down ;;
+        "$ESC[C" | "${ESC}OC" | "l") echo right ;;
+        "$ESC[D" | "${ESC}OD" | "h") echo left ;;
         '') echo enter ;;
         ' ') echo space ;;
     esac
