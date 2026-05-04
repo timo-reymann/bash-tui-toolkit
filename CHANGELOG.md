@@ -1,3 +1,9 @@
+## [1.10.3](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.10.2...1.10.3) (2026-05-04)
+
+### Bug Fixes
+
+* Recognize application cursor mode arrow keys ([a3d457a](https://github.com/timo-reymann/bash-tui-toolkit/commit/a3d457a252a3b31d4bc5d932f4240ebf3affe621))
+
 ## [1.10.2](https://github.com/timo-reymann/bash-tui-toolkit/compare/1.10.1...1.10.2) (2026-02-01)
 
 ### Bug Fixes
