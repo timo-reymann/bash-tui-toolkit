@@ -14,7 +14,7 @@ Bash TUI Toolkit
 </p>
 
 <p align="center">
-<img width="512" src=".github/images/demo.gif">
+<img width="800" src=".github/images/demo.gif">
 </p>
 
 ## Features
